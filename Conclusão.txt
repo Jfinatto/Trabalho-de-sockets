@@ -1,0 +1,9 @@
+Justificativa dos tamanhos de Buffer:
+Buffer para TCP: 4096 bytes (4 KB), Ja que no TCP não dependemos do MTU da rede visto que o SO cuida dessa parte, escolhi esse tamanho por ser um bom meio-termo em numero de chamadas e aproveitamento da largura de banda.
+Ja no caso do UDP: Optei por usar um buffer de 1400 bytes, visto que esse número esta próximo ao limite do MTU, minha ideia foi chegar o mais perto possível sem causar fragmentação do datagrama.
+
+Análise do resultado:
+Analisando os resultados posso concluir que o TCP é a melhor alternativa nos dois aspectos:
+Na media entre 5 execuções do código o TCP demorou em torno de 0,0428 segundos enquanto o TCP 0.0978, Assim da pra concluir que o TCP teve no mínimo o dobro da velocidade.
+Além disso o arquivo recebido via TCP ficou totalmente corrompido e inutilizável (os dois resultados da minha maquina também estão disponíveis no repositório para consulta).
+Acredito que o fato do TCP ser mais lento se deve a Eu estar trabalhando em localhost em uma unica maquina, porém devido ao corrompimento do arquivo é seguro afirmar que o TCP é a melhor alternativa.
